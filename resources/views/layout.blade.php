@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>MANDARIN</title>
 
-    <!-- Bootstrap -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/ie10-viewport.css')}}" rel="stylesheet" type="text/css">
@@ -31,11 +31,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">MANDARIN</a>
+            <a class="navbar-brand" href="../">MANDARIN</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="../">Home</a></li>
                 <li><a href="../lessons">Lessons</a></li>
                 <li><a href="../contact">Contact</a></li>
             </ul>
@@ -43,8 +42,10 @@
     </div>
 </nav>
 
+@yield('jumbotron')
+
 <div class="container">
-        @yield('content')
+    @yield('content')
 </div>
 
 <footer class="footer">

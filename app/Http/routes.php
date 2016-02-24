@@ -9,17 +9,6 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested*/
 
-/* Home */
-Route::get('/', 'HomeController@index');
-
-/* Lessons */
-Route::get('lessons', 'LessonsController@index');
-Route::get('lessons/{lesson}', 'LessonsController@show');
-Route::post('lessons/create', 'LessonsController@create');
-
-/* Contact */
-Route::get('contact', 'ContactController@index');
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -31,6 +20,17 @@ Route::get('contact', 'ContactController@index');
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/', 'HomeController@index');
+
+    /* Lessons */
+    Route::get('lessons', 'LessonsController@index');
+    Route::post('lessons', 'LessonsController@store');
+    Route::get('lessons/{lesson}', 'LessonsController@show');
+    Route::get('lessons/delete/{lesson}', 'LessonsController@delete');
+
+    /* Contact */
+    Route::resource('contact', 'ContactController');
 });
